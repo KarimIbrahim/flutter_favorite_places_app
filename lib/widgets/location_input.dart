@@ -28,12 +28,12 @@ class _LocationInputState extends State<LocationInput> {
     final lat = _pickedLocation!.latitude;
     final long = _pickedLocation!.longitude;
 
-    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$long&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$long&key=AIzaSyCTlaVQl-6PA44mfYu-GeIDsWFoLxSl6PE';
+    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$long&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$long&key=';
   }
 
   Future<void> _savePlace(double lat, double long) async {
     final url = Uri.parse(
-        'https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long&key=AIzaSyCTlaVQl-6PA44mfYu-GeIDsWFoLxSl6PE');
+        'https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long&key=');
     final response = await http.get(url);
     final decodedResponse = json.decode(response.body);
     final address = decodedResponse['results'][0]['formatted_address'];
